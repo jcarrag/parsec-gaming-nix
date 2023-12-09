@@ -3,11 +3,11 @@
 
 stdenv.mkDerivation rec {
   pname = "parsec";
-  version = "150-90c";
+  version = "150-91a";
 
   src = fetchurl {
     url = "https://builds.parsecgaming.com/package/parsec-linux.deb";
-    sha256 = "sha256-rFSdl7BgnuJAj6w5in0/yszO8b5qcr9b+wjF1WkAU70=";
+    sha256 = "sha256-/qugI7k0NYpq7p9l9auD2Pp+SFoFZ9jAZswpreVfgO4=";
   };
 
   # The upstream deb package is out of date and doesn't work out of the box
@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   # fetch the latest binaries.
   latest_appdata = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/appdata/linux/latest";
-    sha256 = "sha256-6urXMrh43viJeNK3bK/T0dJDQYi73YhpZZoSdHltP/M=";
+    sha256 = "sha256-6viS6bLpdxxsTD9MrJRe0TtNxSHrwoPTCT/lMVovT/E=";
   };
 
   latest_parsecd_so = runCommand "latest_parsecd_so" { } ''
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
 
   parsecd_so = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/binary/linux/gz/${builtins.readFile latest_parsecd_so}";
-    sha256 = "sha256-rdppgVCuLUvrU9eKiDJedngjsIwAJd2YGiZiTGDHi4E=";
+    sha256 = "sha256-WHkiVcq2JwzIeJSxLxlnp8fRhQdJDDICY8asweskLGw=";
   };
 
   postPatch = ''
