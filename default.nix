@@ -1,5 +1,5 @@
 { lib, stdenv, fetchurl, alsaLib, curl, dbus, ffmpeg_4, libGL, libpulseaudio,
-  libpng, libva, jq, openssl, runCommand, udev, xorg, wayland }:
+  libpng, libva, jq, openssl, runCommand, udev, vulkan-loader, xorg, wayland }:
 
 stdenv.mkDerivation rec {
   pname = "parsec";
@@ -49,7 +49,7 @@ stdenv.mkDerivation rec {
     alsaLib (lib.getLib dbus) (lib.getLib curl) (lib.getLib libjpeg8.lib)
     libGL libpulseaudio libpng libva (lib.getLib openssl) (lib.getLib stdenv.cc.cc)
     (lib.getLib udev) xorg.libX11 xorg.libXcursor xorg.libXfixes xorg.libXi xorg.libXinerama
-    xorg.libXrandr xorg.libXScrnSaver wayland (lib.getLib ffmpeg_4)
+    xorg.libXrandr xorg.libXScrnSaver wayland (lib.getLib ffmpeg_4) (lib.getLib vulkan-loader)
   ];
 
   unpackPhase = ''
