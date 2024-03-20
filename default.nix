@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   # fetch the latest binaries.
   latest_appdata = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/appdata/linux/latest";
-    sha256 = "sha256-6viS6bLpdxxsTD9MrJRe0TtNxSHrwoPTCT/lMVovT/E=";
+    sha256 = "sha256-SMUNFgcWXyWVoFSIytX8T2x3XeUEtFW3ln71kLgm+Sc=";
   };
 
   latest_parsecd_so = runCommand "latest_parsecd_so" { } ''
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
 
   parsecd_so = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/binary/linux/gz/${builtins.readFile latest_parsecd_so}";
-    sha256 = "sha256-WHkiVcq2JwzIeJSxLxlnp8fRhQdJDDICY8asweskLGw=";
+    sha256 = "sha256-aUrkMV7S/SOmoAq442G2Xr+dYkc9meBmAu0tlZ+BUhc=";
   };
 
   postPatch = ''
